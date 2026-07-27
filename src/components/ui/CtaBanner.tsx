@@ -11,7 +11,7 @@ export default function CtaBanner({
   title,
   subtitle,
   buttonLabel = "Get Your Free Audit →",
-  buttonHref = "/#contact",
+  buttonHref = "/contact",
 }: CtaBannerProps) {
   return (
     <section className="border-t border-line px-6 py-24">

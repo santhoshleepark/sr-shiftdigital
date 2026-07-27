@@ -7,9 +7,9 @@ import Button from "@/components/ui/Button";
 const NAV_LINKS = [
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
-  { label: "Process", href: "/#process" },
-  { label: "Results", href: "/#results" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -49,7 +49,7 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
-          <Button href="#contact" className="px-5 py-2.5 text-xs">
+          <Button href="/contact" className="px-5 py-2.5 text-xs">
             Get Free Audit
           </Button>
         </div>
@@ -91,7 +91,7 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
-            <Button href="#contact" className="w-full justify-center">
+            <Button href="/contact" className="w-full justify-center">
               Get Free Audit
             </Button>
           </div>

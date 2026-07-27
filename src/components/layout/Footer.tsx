@@ -1,15 +1,35 @@
+import Link from "next/link";
+
 const FOOTER_COLUMNS = [
   {
     title: "Services",
-    links: ["Meta Ads", "Google Ads", "SEO", "Web Development", "AI Automation"],
+    links: [
+      { label: "Meta Ads", href: "/services/meta-ads" },
+      { label: "Google Ads", href: "/services/google-ads" },
+      { label: "SEO", href: "/services/seo" },
+      { label: "Web Development", href: "/services/website-development" },
+      { label: "AI Automation", href: "/services/ai-automation" },
+    ],
   },
   {
     title: "Company",
-    links: ["About Us", "Case Studies", "Blog", "Careers"],
+    links: [
+      { label: "About Us", href: "/about" },
+      { label: "Case Studies", href: "/case-studies" },
+      { label: "Portfolio", href: "/portfolio" },
+      { label: "Blog", href: "/blog" },
+      { label: "Pricing", href: "/pricing" },
+      { label: "FAQ", href: "/faq" },
+      { label: "Resources", href: "/resources" },
+    ],
   },
   {
     title: "Contact",
-    links: ["Free Audit", "WhatsApp: +91 78711 52593", "srshiftdigital@gmail.com"],
+    links: [
+      { label: "Free Audit", href: "/contact" },
+      { label: "WhatsApp: +91 78711 52593", href: "https://wa.me/917871152593" },
+      { label: "srshiftdigital@gmail.com", href: "mailto:srshiftdigital@gmail.com" },
+    ],
   },
 ];
 
@@ -37,13 +57,13 @@ export default function Footer() {
               </div>
               <div className="flex flex-col gap-3">
                 {col.links.map((l) => (
-                  <a
-                    key={l}
-                    href="#"
+                  <Link
+                    key={l.label}
+                    href={l.href}
                     className="text-sm text-text-dim transition-colors hover:text-text-mid"
                   >
-                    {l}
-                  </a>
+                    {l.label}
+                  </Link>
                 ))}
               </div>
             </div>
@@ -56,12 +76,12 @@ export default function Footer() {
             reserved.
           </div>
           <div className="flex gap-6">
-            <a href="#" className="text-xs text-text-dim hover:text-text-mid">
+            <Link href="/privacy-policy" className="text-xs text-text-dim hover:text-text-mid">
               Privacy Policy
-            </a>
-            <a href="#" className="text-xs text-text-dim hover:text-text-mid">
+            </Link>
+            <Link href="/terms" className="text-xs text-text-dim hover:text-text-mid">
               Terms of Service
-            </a>
+            </Link>
           </div>
         </div>
       </div>
