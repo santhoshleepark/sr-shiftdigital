@@ -4,6 +4,7 @@ import Stats from "@/components/home/Stats";
 import Process from "@/components/home/Process";
 import Results from "@/components/home/Results";
 import Contact from "@/components/home/Contact";
+import Portfolio from "@/components/home/Portfolio";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Process />
       <Results />
       <Contact />
+      <Portfolio />
     </main>
   );
 }
