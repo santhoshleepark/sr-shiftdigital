@@ -4,7 +4,8 @@ import { useState } from "react";
 
 /* ===== FILL THESE IN. Leave "" to hide that button. ===== */
 const TEAM_EMAIL = ""; // e.g. hello@yourdomain.com
-const TEAM_PHONE = ""; // team number with country code, digits only, e.g. 919XXXXXXXXX
+const TEAM_PHONE = "917598961024"; // country code + number, digits only
+const PHONE_DISPLAY = "+91 75989 61024";
 const CONTACT_PAGE = "/contact"; // your site's existing contact page
 
 const THEME = { "--bg": "#0c1120", "--card": "#10172b", "--line": "rgba(255,255,255,.09)", "--ink": "#f3efe6", "--mute": "#a9b0c4", "--gold": "#ff6a3d", "--btn": "#f3efe6", "--btnink": "#14182a" };
@@ -13,10 +14,10 @@ type Lens = "all" | "seo" | "ads" | "ecom" | "web";
 const lenses: [Lens, string][] = [["all", "All Work"], ["seo", "SEO"], ["ads", "Paid Ads"], ["ecom", "E-commerce"], ["web", "Websites"]];
 
 const stats = [
-  ["10", "Client websites featured", "M3 5h18v14H3zM3 9h18"],
-  ["2", "Instagram accounts shown", "M4 4h16v16H4zM12 8a4 4 0 100 8 4 4 0 000-8z"],
-  ["4", "Core services", "M12 2l9 5-9 5-9-5 9-5zM3 12l9 5 9-5M3 17l9 5 9-5"],
-  ["Chennai", "Based in Tamil Nadu", "M12 21s-7-6-7-11a7 7 0 0114 0c0 5-7 11-7 11zM12 12a2 2 0 100-4 2 2 0 000 4"],
+  ["₹20L", "Monthly ad budgets", "M3 17l6-6 4 4 8-8M15 7h6v6"],
+  ["300+", "B2B leads generated", "M12 2l9 5-9 5-9-5 9-5zM3 12l9 5 9-5M3 17l9 5 9-5"],
+  ["40%", "Lower cost per lead", "M6 2h12l2 5H4l2-5zM4 7v13h16V7"],
+  ["45%", "Organic traffic in 3 months", "M12 21s-7-6-7-11a7 7 0 0114 0c0 5-7 11-7 11zM12 12a2 2 0 100-4 2 2 0 000 4"],
 ];
 
 type Project = { l: string[]; e: string; t: string; d: string; r: string; u: string; cs?: boolean; img?: string };
@@ -81,6 +82,8 @@ export default function PortfolioClient() {
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <a href={CONTACT_PAGE} className="rounded-full bg-[var(--btn)] px-6 py-3 text-sm font-semibold text-[var(--btnink)]">Discuss Your Project</a>
             <a href="#work" className="rounded-full border border-[var(--line)] px-6 py-3 text-sm font-semibold">Explore Our Work</a>
+            {TEAM_PHONE && <a href={`tel:+${TEAM_PHONE}`} className="rounded-full border border-[var(--gold)] px-6 py-3 text-sm font-semibold text-[var(--gold)]">Call {PHONE_DISPLAY}</a>}
+            {wa && <a href={wa} target="_blank" rel="noopener noreferrer" className="rounded-full border border-[var(--line)] px-6 py-3 text-sm font-semibold">WhatsApp Us</a>}
           </div>
           <ul className="mx-auto mt-14 grid max-w-5xl grid-cols-2 gap-4 md:grid-cols-4">
             {stats.map(([n, l, p]) => (
@@ -91,6 +94,7 @@ export default function PortfolioClient() {
               </li>
             ))}
           </ul>
+          <p className="mt-4 text-xs text-[var(--mute)]">Figures from paid media and SEO campaigns our team has contributed to. Results vary by business and are not guaranteed.</p>
         </section>
 
         {/* work */}
@@ -218,12 +222,20 @@ export default function PortfolioClient() {
           <p className="mx-auto mt-4 max-w-2xl text-[var(--mute)]">Whether you&apos;re looking to improve your website&apos;s SEO, build a professional WordPress website or plan your next digital advertising campaign, let&apos;s discuss how we can move your business forward.</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3 text-sm font-semibold">
             <a href={CONTACT_PAGE} className="rounded-full bg-[var(--btn)] px-6 py-3 text-[var(--btnink)]">Discuss a Project</a>
+            {TEAM_PHONE && <a href={`tel:+${TEAM_PHONE}`} className="rounded-full border border-[var(--gold)] px-6 py-3 text-[var(--gold)]">Call {PHONE_DISPLAY}</a>}
             {TEAM_EMAIL && <a href={`mailto:${TEAM_EMAIL}`} className="rounded-full border border-[var(--line)] px-6 py-3">Email the Team</a>}
             {wa && <a href={wa} target="_blank" rel="noopener noreferrer" className="rounded-full border border-[var(--line)] px-6 py-3">WhatsApp Enquiry</a>}
           </div>
-          {(TEAM_EMAIL || TEAM_PHONE) && <p className="mt-4 text-sm text-[var(--mute)]">{[TEAM_EMAIL, TEAM_PHONE && `+${TEAM_PHONE}`, "Chennai, India"].filter(Boolean).join(" • ")}</p>}
+          {(TEAM_EMAIL || TEAM_PHONE) && <p className="mt-4 text-sm text-[var(--mute)]">{[TEAM_EMAIL, TEAM_PHONE && PHONE_DISPLAY, "Chennai, India"].filter(Boolean).join(" • ")}</p>}
         </section>
       </main>
+
+      {wa && (
+        <div className="fixed bottom-5 right-5 z-40 flex gap-2 text-sm font-semibold">
+          <a href={`tel:+${TEAM_PHONE}`} aria-label={`Call ${PHONE_DISPLAY}`} className="rounded-full bg-[var(--btn)] px-5 py-3 text-[var(--btnink)] shadow-lg">Call</a>
+          <a href={wa} target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" className="rounded-full bg-[#25d366] px-5 py-3 text-white shadow-lg">WhatsApp</a>
+        </div>
+      )}
     </div>
   );
 }
