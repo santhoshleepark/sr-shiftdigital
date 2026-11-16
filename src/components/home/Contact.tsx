@@ -5,7 +5,7 @@ import { useState, FormEvent } from "react";
 const CONTACT_INFO = [
   { label: "Email", value: "srshiftdigital@gmail.com" },
   { label: "Phone", value: "+91 78711 52593" },
-  { label: "WhatsApp", value: "+91 78711 52593" },
+  { label: "WhatsApp", value: "+91 75989 61024" },
   { label: "Location", value: "Tamil Nadu, India" },
 ];
 
